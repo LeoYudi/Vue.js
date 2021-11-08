@@ -1,7 +1,7 @@
 <template>
   <div class="styled-input">
     <input class="input" :type="type" :name="name" @focus="focusHandler($event)" @focusout="focusOutHandler($event)">
-    <span class="input-label">{{placeholder}}</span>
+    <span class="input-label">{{label}}</span>
   </div>
 </template>
 
@@ -11,7 +11,8 @@
     props: {
       type: String,
       name: String,
-      placeholder: String
+      label: String,
+      value: String
     },
     methods: {
       focusHandler: (e) => {
@@ -35,6 +36,7 @@
     position: relative;
     font-size: 20px;
     font-weight: bold;
+    margin-top: 10px;
     margin-bottom: 40px;
     border-bottom: 2px solid #107447;
   }

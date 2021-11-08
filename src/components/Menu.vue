@@ -6,13 +6,22 @@
     <router-link to="/" class="menu-item">Home</router-link>
     <router-link to="/about" class="menu-item">About</router-link>
     <div class="fill"></div>
-    <router-link to="/login" class="menu-item">Logout</router-link>
+    <a class="menu-item" @click="logoutHandler()">Logout</a>
   </div>
 </template>
 
 <script>
+  import router from '@/router';
+
   export default {
-    name: 'Menu'
+    name: 'Menu',
+    methods: {
+      logoutHandler() {
+        console.log('teste');
+        localStorage.removeItem('token');
+        router.push({ name: 'Login' });
+      }
+    }
   }
 </script>
 
@@ -42,6 +51,7 @@
     font-weight: bold;
     color: white;
     text-decoration: none;
+    cursor: pointer;
   }
 
   .menu-item:hover {
