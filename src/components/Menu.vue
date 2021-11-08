@@ -17,7 +17,6 @@
     name: 'Menu',
     methods: {
       logoutHandler() {
-        console.log('teste');
         localStorage.removeItem('token');
         router.push({ name: 'Login' });
       }

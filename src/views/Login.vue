@@ -19,6 +19,7 @@
 
   import Api from '@/services/api.js';
   import router from '@/router';
+  import store from '@/store';
 
   import { ref, reactive } from 'vue';
 
@@ -58,6 +59,7 @@
         }
 
         localStorage.setItem('token', response.data.token);
+        store.commit('setUser', response.data.user);
         router.push('/');
       }
     }
