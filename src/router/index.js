@@ -1,6 +1,9 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
+
+import store from '@/store';
 import Home from '../views/Home.vue'
 import Login from '../views/Login.vue'
+import Admin from '../views/Admin.vue'
 
 const routes = [
   {
@@ -22,6 +25,11 @@ const routes = [
     path: '/login',
     name: 'Login',
     component: Login
+  },
+  {
+    path: '/admins',
+    name: 'Admin',
+    component: Admin
   }
 ]
 
@@ -31,7 +39,7 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
-  const token = localStorage.getItem('token');
+  const token = store.getters.token;
 
   if (to.path === '/login') {
     if (token)

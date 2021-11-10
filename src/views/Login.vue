@@ -58,8 +58,7 @@
           return;
         }
 
-        localStorage.setItem('token', response.data.token);
-        store.commit('setUser', response.data.user);
+        store.commit('setLoggedUser', response.data);
         router.push('/');
       }
     }

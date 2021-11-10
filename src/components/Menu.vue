@@ -5,6 +5,7 @@
     </div>
     <router-link to="/" class="menu-item">Home</router-link>
     <router-link to="/about" class="menu-item">About</router-link>
+    <router-link to="/admins" class="menu-item">Admins</router-link>
     <div class="fill"></div>
     <a class="menu-item" @click="logoutHandler()">Logout</a>
   </div>
@@ -12,12 +13,13 @@
 
 <script>
   import router from '@/router';
+  import store from '@/store';
 
   export default {
     name: 'Menu',
     methods: {
       logoutHandler() {
-        localStorage.removeItem('token');
+        store.commit('logout');
         router.push({ name: 'Login' });
       }
     }
